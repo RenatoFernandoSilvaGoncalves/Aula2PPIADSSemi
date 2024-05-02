@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 
 const porta = 3000;
 const host = '0.0.0.0'; //todas as interfaces (placas de rede) do computador hospedeiro
@@ -9,7 +10,7 @@ const app = express();
 // definir as funcionalidades do servidor acessíveis por endpoints (rotas)
 
 //Declarar a nossa aplicação express onde está a fonte dos arquivos estáticos
-app.use(express.static('./publico'));
+app.use(express.static(path.join(process.cwd(), 'publico')));
 
 app.use('/cadastrarUsuario', (req,resp)=>{
 
